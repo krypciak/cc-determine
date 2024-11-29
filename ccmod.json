@@ -1,0 +1,13 @@
+{
+    "id": "cc-determine",
+    "version": "0.0.1",
+    "title": "DeterMine",
+    "description": "Make CrossCode behave in a deterministic way",
+    "repository": "https://github.com/krypciak/cc-determine",
+    "tags": ["library"],
+    "authors": ["krypek"],
+    "icons": {
+        "24": "icon/icon.png"
+    },
+    "plugin": "plugin.js"
+}
