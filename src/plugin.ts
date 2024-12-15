@@ -1,6 +1,7 @@
 import { PluginClass } from 'ultimate-crosscode-typedefs/modloader/mod'
 import { Mod1 } from './types'
 import { DeterMineInstance } from './instance'
+import { injectDeterminism } from './inject'
 
 export default class CCDeterMine implements PluginClass {
     static dir: string
@@ -17,6 +18,7 @@ export default class CCDeterMine implements PluginClass {
     }
 
     async prestart() {
+        injectDeterminism()
         determine.append(new determine.Instance('cross the codes', true))
     }
 }
