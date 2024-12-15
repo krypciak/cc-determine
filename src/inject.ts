@@ -547,6 +547,7 @@ function event() {
             this.parent(...args)
             Math.random = back
         },
+        // @ts-expect-error
         run(...args) {
             const back = Math.random
             Math.random = () => {
@@ -952,7 +953,9 @@ function event() {
             return ret
         },
     })
+    // @ts-expect-error
     sc.ENEMY_REACTION.TARGET_DISTANCE.inject({
+        // @ts-expect-error
         check(...args) {
             const back = Math.random
             Math.random = () => {
@@ -965,30 +968,36 @@ function event() {
         },
     })
     sc.ENEMY_REACTION.COLLAB.inject({
+        // @ts-expect-error
         isReady(...args) {
             const back = Math.random
             Math.random = () => {
                 types.push('sc.ENEMY_REACION.COLLAB#isReady')
                 return ci().event()
             }
+            // @ts-expect-error
             const ret = this.parent(...args)
             Math.random = back
             return ret
         },
     })
     sc.ENEMY_REACTION.GUARD_COUNTER.inject({
+        // @ts-expect-error
         onGuardCounterCheck(...args) {
             const back = Math.random
             Math.random = () => {
                 types.push('sc.ENEMY_REACTION.GUARD_COUNTER#onGuardCounterCheck')
                 return ci().event()
             }
+            // @ts-expect-error
             const ret = this.parent(...args)
             Math.random = back
             return ret
         },
     })
+    // @ts-expect-error
     sc.ENEMY_REACTION.DODGE.inject({
+        // @ts-expect-error
         check(...args) {
             const back = Math.random
             Math.random = () => {
@@ -1000,7 +1009,9 @@ function event() {
             return ret
         },
     })
+    // @ts-expect-error
     sc.ENEMY_REACTION.COUNTER_COUNTER.inject({
+        // @ts-expect-error
         check(...args) {
             const back = Math.random
             Math.random = () => {
@@ -1125,7 +1136,6 @@ function event() {
     })
     // @ts-expect-error
     ig.EVENT_STEP.COMBAT_IF.inject({
-        // @ts-expect-error
         getNext() {
             const back = Math.random
             Math.random = () => {
@@ -1168,7 +1178,7 @@ function event() {
             this.parent(...args)
             Math.random = back
         },
-        spawnNpcGroups(...args) {
+        spawnNpcGroup(...args) {
             const back = Math.random
             Math.random = () => {
                 types.push('sc.NpcRunnerSpawner#spawnNpcGroups')
