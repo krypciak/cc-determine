@@ -36,6 +36,5 @@ export class DeterMineInstance {
             this.sound = new Math.seedrandomSeed(seed, args)
             this.event = new Math.seedrandomSeed(seed, args)
         }
-        console.log(this.general)
     }
 }
