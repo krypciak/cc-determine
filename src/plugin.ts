@@ -34,6 +34,10 @@ class DeterMine {
     delete(instance: DeterMineInstance) {
         delete this.instances[instance.id]
     }
+
+    apply(instance: DeterMineInstance) {
+        this.instanceId = instance.id
+    }
 }
 
 declare global {
