@@ -9,10 +9,10 @@ export class DeterMineInstance {
 
     id: number
 
-    general!: () => number
-    visual!: () => number
-    sound!: () => number
-    event!: () => number
+    general!: prng
+    visual!: prng
+    sound!: prng
+    event!: prng
 
     constructor(
         seed: string,
@@ -25,13 +25,17 @@ export class DeterMineInstance {
     }
 
     setSeed(seed: string) {
-        if (this.allTheSame) {
-            this.general = this.visual = this.sound = this.event = new Math.seedrandomSeed(seed)
-        } else {
-            this.general = new Math.seedrandomSeed(seed)
-            this.visual = new Math.seedrandomSeed(seed)
-            this.sound = new Math.seedrandomSeed(seed)
-            this.event = new Math.seedrandomSeed(seed)
+        const args: seedRandomOptions = {
+            state: true,
         }
+        if (this.allTheSame) {
+            this.general = this.visual = this.sound = this.event = new Math.seedrandomSeed(seed, args)
+        } else {
+            this.general = new Math.seedrandomSeed(seed, args)
+            this.visual = new Math.seedrandomSeed(seed, args)
+            this.sound = new Math.seedrandomSeed(seed, args)
+            this.event = new Math.seedrandomSeed(seed, args)
+        }
+        console.log(this.general)
     }
 }
