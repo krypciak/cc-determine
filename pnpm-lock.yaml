@@ -26,6 +26,9 @@ importers:
       ccmodmanager:
         specifier: github:CCDirectLink/CCModManager
         version: https://codeload.github.com/CCDirectLink/CCModManager/tar.gz/e80a954a9c53f569563ef65f0966369664c4a32b
+      crossnode:
+        specifier: github:krypciak/crossnode
+        version: https://codeload.github.com/krypciak/crossnode/tar.gz/eea2c79918312aa340891032368f1e1cff9395f8
       esbuild:
         specifier: ^0.20.2
         version: 0.20.2
@@ -376,6 +379,10 @@ packages:
   cross-spawn@7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
     engines: {node: '>= 8'}
+
+  crossnode@https://codeload.github.com/krypciak/crossnode/tar.gz/eea2c79918312aa340891032368f1e1cff9395f8:
+    resolution: {tarball: https://codeload.github.com/krypciak/crossnode/tar.gz/eea2c79918312aa340891032368f1e1cff9395f8}
+    version: 1.0.0
 
   debug@4.3.5:
     resolution: {integrity: sha512-pt0bNEmneDIvdL1Xsd9oDQ/wrQRkXDT4AUWlNZNPKvW5x/jyO9VFXkJUP07vQ2upmw5PlaITaPKc31jK13V+jg==}
@@ -1029,6 +1036,8 @@ snapshots:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
+
+  crossnode@https://codeload.github.com/krypciak/crossnode/tar.gz/eea2c79918312aa340891032368f1e1cff9395f8: {}
 
   debug@4.3.5:
     dependencies:

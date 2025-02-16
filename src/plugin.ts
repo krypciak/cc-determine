@@ -20,6 +20,10 @@ export default class CCDeterMine implements PluginClass {
     async prestart() {
         injectDeterminism()
         determine.append(new determine.Instance('cross the codes', true))
+
+        if (window.crossnode?.options.test) {
+            await import('./test')
+        }
     }
 }
 
