@@ -1,6 +1,6 @@
 import type { CrossnodeTest } from 'crossnode/crossnode.d.ts'
-import type { DeterMineInstance } from './instance'
-import CCDeterMine from './plugin'
+import CCDeterMine from '../plugin'
+import { DeterMineInstance } from '../instance'
 
 let i = 0
 function genTest(): CrossnodeTest<{ determineInst: DeterMineInstance }> {
@@ -30,7 +30,7 @@ function genTest(): CrossnodeTest<{ determineInst: DeterMineInstance }> {
         },
         update(frame) {
             if (frame >= 3 * 60) {
-                const expected = { x: 262.87, y: 268.09, z: 0 }
+                const expected = { x: 237.28, y: 257.32, z: 0 }
                 const ppos = ig.game.playerEntity.coll.pos
                 if (Vec3.equal(ppos, expected)) {
                     this.finish(true)

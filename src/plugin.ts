@@ -22,7 +22,7 @@ export default class CCDeterMine implements PluginClass {
         determine.append(new determine.Instance('cross the codes', true))
 
         if (window.crossnode?.options.test) {
-            await import('./test')
+            await import('./test/mouse')
         }
     }
 }
