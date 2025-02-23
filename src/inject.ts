@@ -4,12 +4,15 @@ export function injectDeterminism() {
     Math.random = function () {
         if (!ci()?.general) throw new Error('determinism: seed not set!')
         console.log('Math.random()')
+        console.trace()
+        console.log()
         return ci().general()
     }
 
     sound()
     visual()
     event()
+    misc()
 }
 
 function ci(): DeterMineInstance {
@@ -439,5 +442,42 @@ function event() {
     sc.CommonEvents.inject({
         startCallEvent: replace('sc.CommonEvents#startCallEvent'),
         selectEvent: replace('sc.CommonEvents#selectEvent'),
+    })
+}
+
+function misc() {
+    const replace: (path: string) => (...args: unknown[]) => any = function (path: string) {
+        return function (this: any, ...args) {
+            const back = Math.random
+            Math.random = (...args) => {
+                const inst = ci()
+                if (inst.logEvents) inst.miscLog.push(path)
+                return inst.misc(...args)
+            }
+            const ret = this.parent(...args)
+            Math.random = back
+            return ret
+        }
+    }
+    const regularReplace = (orig: (...args: any[]) => any, path: string) => {
+        return function (...args: unknown[]) {
+            const back = Math.random
+            Math.random = (...args) => {
+                const inst = ci()
+                if (inst.logEvents) inst.miscLog.push(path)
+                return inst.misc(...args)
+            }
+            const ret = orig(...args)
+            Math.random = back
+            return ret
+        }
+    }
+
+    ig.StorageTools.encrypt = regularReplace(ig.StorageTools.encrypt, 'ig.StorageTools#encrypt')
+    /* duno is decrypt actually uses Math.random() */
+    ig.StorageTools.decrypt = regularReplace(ig.StorageTools.decrypt, 'ig.StorageTools#decrypt')
+    ig.Storage.inject({
+        _encrypt: replace('ig.Storage#_encrypt'),
+        _decrypt: replace('ig.Storage#_decrypt'),
     })
 }

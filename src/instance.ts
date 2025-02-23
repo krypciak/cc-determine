@@ -13,10 +13,12 @@ export class DeterMineInstance {
     visual!: prng
     sound!: prng
     event!: prng
+    misc!: prng
 
     visualLog!: string[]
     soundLog!: string[]
     eventLog!: string[]
+    miscLog!: string[]
 
     constructor(
         seed: string,
@@ -34,16 +36,18 @@ export class DeterMineInstance {
             state: true,
         }
         if (this.allTheSame) {
-            this.general = this.visual = this.sound = this.event = new Math.seedrandomSeed(seed, args)
+            this.general = this.visual = this.sound = this.event = this.misc = new Math.seedrandomSeed(seed, args)
         } else {
             this.general = new Math.seedrandomSeed(seed, args)
             this.visual = new Math.seedrandomSeed(seed, args)
             this.sound = new Math.seedrandomSeed(seed, args)
             this.event = new Math.seedrandomSeed(seed, args)
+            this.misc = new Math.seedrandomSeed(seed, args)
         }
         this.visualLog = []
         this.soundLog = []
         this.eventLog = []
+        this.miscLog = []
     }
 
     static printCompressedLog(log: string[]) {
