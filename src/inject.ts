@@ -19,9 +19,11 @@ function ci(): DeterMineInstance {
 function sound() {
     const replace: (path: string) => (...args: unknown[]) => any = function (path: string) {
         return function (this: any, ...args) {
-            ci().soundLog.push(path)
             const back = Math.random
-            Math.random = ci().sound
+            Math.random = (...args) => {
+                ci().soundLog.push(path)
+                return ci().sound(...args)
+            }
             const ret = this.parent(...args)
             Math.random = back
             return ret
@@ -41,9 +43,11 @@ function sound() {
 function visual() {
     const replace: (path: string) => (...args: unknown[]) => any = function (path: string) {
         return function (this: any, ...args) {
-            ci().visialLog.push(path)
             const back = Math.random
-            Math.random = ci().visual
+            Math.random = (...args) => {
+                ci().visualLog.push(path)
+                return ci().visual(...args)
+            }
             const ret = this.parent(...args)
             Math.random = back
             return ret
@@ -51,9 +55,11 @@ function visual() {
     }
     const regularReplace = (orig: (...args: any[]) => any, path: string) => {
         return function (...args: unknown[]) {
-            ci().visialLog.push(path)
             const back = Math.random
-            Math.random = ci().visual
+            Math.random = (...args) => {
+                ci().visualLog.push(path)
+                return ci().visual(...args)
+            }
             const ret = orig(...args)
             Math.random = back
             return ret
@@ -208,9 +214,11 @@ function visual() {
 function event() {
     const replace: (path: string) => (...args: unknown[]) => any = function (path: string) {
         return function (this: any, ...args) {
-            ci().eventLog.push(path)
             const back = Math.random
-            Math.random = ci().event
+            Math.random = (...args) => {
+                ci().eventLog.push(path)
+                return ci().event(...args)
+            }
             const ret = this.parent(...args)
             Math.random = back
             return ret
@@ -218,9 +226,11 @@ function event() {
     }
     const regularReplace = (orig: (...args: any[]) => any, path: string) => {
         return function (...args: unknown[]) {
-            ci().eventLog.push(path)
             const back = Math.random
-            Math.random = ci().event
+            Math.random = (...args) => {
+                ci().eventLog.push(path)
+                return ci().event(...args)
+            }
             const ret = orig(...args)
             Math.random = back
             return ret

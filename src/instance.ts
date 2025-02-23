@@ -14,7 +14,7 @@ export class DeterMineInstance {
     sound!: prng
     event!: prng
 
-    visialLog!: string[]
+    visualLog!: string[]
     soundLog!: string[]
     eventLog!: string[]
 
@@ -40,8 +40,20 @@ export class DeterMineInstance {
             this.sound = new Math.seedrandomSeed(seed, args)
             this.event = new Math.seedrandomSeed(seed, args)
         }
-        this.visialLog = []
+        this.visualLog = []
         this.soundLog = []
         this.eventLog = []
+    }
+
+    static printCompressedLog(log: string[]) {
+        const newLog: [number, string][] = []
+        for (const event of log) {
+            if (newLog.last() && newLog.last()[1] == event) {
+                newLog.last()[0]++
+            } else {
+                newLog.push([1, event])
+            }
+        }
+        console.log(newLog)
     }
 }
