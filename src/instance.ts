@@ -20,7 +20,8 @@ export class DeterMineInstance {
 
     constructor(
         seed: string,
-        public allTheSame: boolean = false
+        public allTheSame: boolean = false,
+        public logEvents: boolean = false
     ) {
         this.id = DeterMineInstance.instanceIdCounter
         DeterMineInstance.instanceIdCounter++

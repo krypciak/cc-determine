@@ -21,8 +21,9 @@ function sound() {
         return function (this: any, ...args) {
             const back = Math.random
             Math.random = (...args) => {
-                ci().soundLog.push(path)
-                return ci().sound(...args)
+                const inst = ci()
+                if (inst.logEvents) inst.soundLog.push(path)
+                return inst.sound(...args)
             }
             const ret = this.parent(...args)
             Math.random = back
@@ -45,8 +46,9 @@ function visual() {
         return function (this: any, ...args) {
             const back = Math.random
             Math.random = (...args) => {
-                ci().visualLog.push(path)
-                return ci().visual(...args)
+                const inst = ci()
+                if (inst.logEvents) inst.visualLog.push(path)
+                return inst.visual(...args)
             }
             const ret = this.parent(...args)
             Math.random = back
@@ -57,8 +59,9 @@ function visual() {
         return function (...args: unknown[]) {
             const back = Math.random
             Math.random = (...args) => {
-                ci().visualLog.push(path)
-                return ci().visual(...args)
+                const inst = ci()
+                if (inst.logEvents) inst.visualLog.push(path)
+                return inst.visual(...args)
             }
             const ret = orig(...args)
             Math.random = back
@@ -216,8 +219,9 @@ function event() {
         return function (this: any, ...args) {
             const back = Math.random
             Math.random = (...args) => {
-                ci().eventLog.push(path)
-                return ci().event(...args)
+                const inst = ci()
+                if (inst.logEvents) inst.eventLog.push(path)
+                return inst.event(...args)
             }
             const ret = this.parent(...args)
             Math.random = back
@@ -228,8 +232,9 @@ function event() {
         return function (...args: unknown[]) {
             const back = Math.random
             Math.random = (...args) => {
-                ci().eventLog.push(path)
-                return ci().event(...args)
+                const inst = ci()
+                if (inst.logEvents) inst.eventLog.push(path)
+                return inst.event(...args)
             }
             const ret = orig(...args)
             Math.random = back
