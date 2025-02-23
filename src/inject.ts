@@ -2,7 +2,7 @@ import { DeterMineInstance } from './instance'
 
 export function injectDeterminism() {
     Math.random = function () {
-        if (!ci().general) throw new Error('determinism: seed not set!')
+        if (!ci()?.general) throw new Error('determinism: seed not set!')
         console.log('Math.random()')
         return ci().general()
     }
