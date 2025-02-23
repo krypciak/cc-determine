@@ -14,6 +14,10 @@ export class DeterMineInstance {
     sound!: prng
     event!: prng
 
+    visialLog!: string[]
+    soundLog!: string[]
+    eventLog!: string[]
+
     constructor(
         seed: string,
         public allTheSame: boolean = false
@@ -36,5 +40,8 @@ export class DeterMineInstance {
             this.sound = new Math.seedrandomSeed(seed, args)
             this.event = new Math.seedrandomSeed(seed, args)
         }
+        this.visialLog = []
+        this.soundLog = []
+        this.eventLog = []
     }
 }
