@@ -4,8 +4,7 @@ export function injectDeterminism() {
     Math.random = function () {
         if (!ci()?.general) throw new Error('determinism: seed not set!')
         console.log('Math.random()')
-        console.trace()
-        console.log()
+        // console.trace()
         return ci().general()
     }
 
@@ -41,6 +40,21 @@ function sound() {
     })
     sc.ArenaCrowdCheerController.inject({
         play: replace('sc.ArenaCrowdCheerController#play'),
+    })
+    // @ts-expect-error
+    ig.ACTION_STEP.PLAY_RANDOM_SOUND.inject({
+        run: replace('ig.ACTION_STEP.PLAY_RANDOM_SOUND#play'),
+    })
+    // @ts-expect-error
+    ig.ACTION_STEP.PLAY_RANDOM_SOUND.inject({
+        run: replace('ig.ACTION_STEP.PLAY_RANDOM_SOUND#start'),
+    })
+    // @ts-expect-error
+    ig.EFFECT_ENTRY.PLAY_RANDOM_SOUND.inject({
+        start: replace('ig.EFFECT_ENTRY.PLAY_RANDOM_SOUND#start'),
+    })
+    sc.VoiceActing.inject({
+        play: replace('sc.VoiceActing#play')
     })
 }
 
@@ -442,6 +456,11 @@ function event() {
     sc.CommonEvents.inject({
         startCallEvent: replace('sc.CommonEvents#startCallEvent'),
         selectEvent: replace('sc.CommonEvents#selectEvent'),
+    })
+
+    // @ts-expect-error
+    ig.ACTION_STEP.PLACE_TESLA_COIL.inject({
+        run: replace('ig.ACTION_STEP.PLACE_TESLA_COIL#start'),
     })
 }
 
