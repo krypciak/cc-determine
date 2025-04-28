@@ -1,9 +1,15 @@
 import { DeterMineInstance } from './instance'
 
+declare global {
+    interface Math {
+        randomOrig(): number
+    }
+}
 export function injectDeterminism() {
+    Math.randomOrig = Math.random
     Math.random = function () {
         if (!ci()?.general) throw new Error('determinism: seed not set!')
-        console.log('Math.random()')
+        // console.log('Math.random()')
         // console.trace()
         return ci().general()
     }
@@ -54,7 +60,7 @@ function sound() {
         start: replace('ig.EFFECT_ENTRY.PLAY_RANDOM_SOUND#start'),
     })
     sc.VoiceActing.inject({
-        play: replace('sc.VoiceActing#play')
+        play: replace('sc.VoiceActing#play'),
     })
 }
 
