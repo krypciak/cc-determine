@@ -329,7 +329,6 @@ function event() {
         getDamage: replace('sc.CombatParams#getDamage'),
         getHealAmount: replace('sc.CombatParams#getHealAmount'),
     })
-    // @ts-expect-error
     sc.BALL_BEHAVIOR.SLOW_DOWN.inject({
         onInit: replace('sc.BALL_BEHAVIOR.SLOW_DOWN#onInit'),
     })
