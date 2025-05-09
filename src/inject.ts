@@ -47,15 +47,12 @@ function sound() {
     sc.ArenaCrowdCheerController.inject({
         play: replace('sc.ArenaCrowdCheerController#play'),
     })
-    // @ts-expect-error
     ig.ACTION_STEP.PLAY_RANDOM_SOUND.inject({
         run: replace('ig.ACTION_STEP.PLAY_RANDOM_SOUND#play'),
     })
-    // @ts-expect-error
     ig.ACTION_STEP.PLAY_RANDOM_SOUND.inject({
         run: replace('ig.ACTION_STEP.PLAY_RANDOM_SOUND#start'),
     })
-    // @ts-expect-error
     ig.EFFECT_ENTRY.PLAY_RANDOM_SOUND.inject({
         start: replace('ig.EFFECT_ENTRY.PLAY_RANDOM_SOUND#start'),
     })
@@ -120,43 +117,34 @@ function visual() {
     ig.EFFECT_ENTRY.PLAY_ANIM_RANGE.inject({
         update: replace('ig.EFFECT_ENTRY.PLAY_ANIM_RANGE#update'),
     })
-    // @ts-expect-error
     ig.EFFECT_ENTRY.PLAY_ANIMS_OVER_ENTITY.inject({
         update: replace('ig.EFFECT_ENTRY.PLAY_ANIMS_OVER_ENTITY#update'),
     })
-    // @ts-expect-error
     ig.EFFECT_ENTRY.DEBRIS_OVER_ENTITY.inject({
         start: replace('ig.EFFECT_ENTRY.DEBRIS_OVER_ENTITY#start'),
     })
-    // @ts-expect-error
     ig.EFFECT_ENTRY.PARTICLE_BOX.inject({
         spawnBoxLine: replace('ig.EFFECT_ENTRY.PARTICLE_BOX#spawnBoxLine'),
     })
-    // @ts-expect-error
     ig.EFFECT_ENTRY.OFFSET_PARTICLE_CIRCLE.inject({
         spawn: replace('ig.EFFECT_ENTRY.OFFSET_PARTICLE_CIRCLE#spawn'),
         _spawnParticles: replace('ig.EFFECT_ENTRY.OFFSET_PARTICLE_CIRCLE#_spawnParticles'),
     })
-    // @ts-expect-error
     ig.EFFECT_ENTRY.PARTICLE_CIRCLE.inject({
         spawn: replace('ig.EFFECT_ENTRY.PARTICLE_CIRCLE#spawn'),
         _spawnParticles: replace('ig.EFFECT_ENTRY.PARTICLE_CIRCLE#_spawnParticles'),
     })
-    // @ts-expect-error
     ig.EFFECT_ENTRY.DEBRIS_CIRCLE.inject({
         spawn: replace('ig.EFFECT_ENTRY.DEBRIS_CIRCLE#spawn'),
         _spawnParticles: replace('ig.EFFECT_ENTRY.DEBRIS_CIRCLE#_spawnParticles'),
         spawnVel: replace('ig.EFFECT_ENTRY.DEBRIS_CIRCLE#spawnVel'),
     })
-    // @ts-expect-error
     ig.EFFECT_ENTRY.SHOOT_HOMING_PARTICLE.inject({
         _spawnParticles: replace('ig.EFFECT_ENTRY.SHOOT_HOMING_PARTICLE#_spawnParticles'),
     })
-    // @ts-expect-error
     ig.EFFECT_ENTRY.PARTICLE_RHOMBUS.inject({
         update: replace('ig.EFFECT_ENTRY.PARTICLE_RHOMBUS#update'),
     })
-    // @ts-expect-error
     ig.EFFECT_ENTRY.WIPE_PARTICLES.inject({
         update: replace('ig.EFFECT_ENTRY.WIPE_PARTICLES#update'),
     })
@@ -231,7 +219,6 @@ function visual() {
     ig.ENTITY.EnemyCounter.inject({
         updateSprites: replace('ig.ENTITY.EnemyCounter#updateSprites'),
     })
-    // @ts-expect-error
     ig.EVENT_STEP.FIX_SHOCKWAVE_PLATFORMS.inject({
         start: replace('ig.EVENT_STEP.FIX_SHOCKWAVE_PLATFORMS#start'),
     })
@@ -266,52 +253,40 @@ function event() {
     }
 
     ig.Event.getNumberVary = regularReplace(ig.Event.getNumberVary, 'ig.Event.getNumberVary')
-    // @ts-expect-error
     ig.ACTION_STEP.SELECT_RANDOM.inject({
         getNext: replace('ig.ACTION_STEP.SELECT_RANDOM#getNext'),
     })
-    // @ts-expect-error
     ig.ACTION_STEP.WAIT_RANDOM.inject({
         start: replace('ig.ACTION_STEP.WAIT_RANDOM#start'),
     })
-    // @ts-expect-error
     ig.ACTION_STEP.MOVE_TO_LINE.inject({
         start: replace('ig.ACTION_STEP.MOVE_TO_LINE#start'),
     })
-    // @ts-expect-error
     ig.ACTION_STEP.MOVE_RANDOM.inject({
         start: replace('ig.ACTION_STEP.MOVE_RANDOM#start'),
         run: replace('ig.ACTION_STEP.MOVE_RANDOM#run'),
     })
-    // @ts-expect-error
     ig.ACTION_STEP.ROTATE_FACE.inject({
         start: replace('ig.ACTION_STEP.ROTATE_FACE#start'),
     })
-    // @ts-expect-error
     ig.ACTION_STEP.SHOW_RANDOM_ANIMATION.inject({
         start: replace('ig.ACTION_STEP.SHOW_RANDOM_ANIMATION#start'),
     })
-    // @ts-expect-error
     ig.ACTION_STEP.SET_RANDOM_VAR_NUMBER.inject({
         run: replace('ig.ACTION_STEP.SET_RANDOM_VAR_NUMBER#run'),
     })
-    // @ts-expect-error
     ig.ACTION_STEP.SET_ATTRIB_NUMBER_RANDOM.inject({
         run: replace('ig.ACTION_STEP.SET_ATTRIB_NUMBER_RANDOM#run'),
     })
-    // @ts-expect-error
     ig.EVENT_STEP.SELECT_RANDOM.inject({
         getNext: replace('ig.EVENT_STEP.SELECT_RANDOM#getNext'),
     })
-    // @ts-expect-error
     ig.EVENT_STEP.WAIT_RANDOM.inject({
         start: replace('ig.EVENT_STEP.WAIT_RANDOM#start'),
     })
-    // @ts-expect-error
     ig.EVENT_STEP.MASS_AVATAR_JUMP.inject({
         start: replace('ig.EVENT_STEP.MASS_AVATAR_JUMP#start'),
     })
-    // @ts-expect-error
     ig.EVENT_STEP.SET_RANDOM_VAR_NUMBER.inject({
         start: replace('ig.EVENT_STEP.SET_RANDOM_VAR_NUMBER#start'),
     })
@@ -329,7 +304,6 @@ function event() {
         getDamage: replace('sc.CombatParams#getDamage'),
         getHealAmount: replace('sc.CombatParams#getHealAmount'),
     })
-    // @ts-expect-error
     sc.BALL_BEHAVIOR.SLOW_DOWN.inject({
         onInit: replace('sc.BALL_BEHAVIOR.SLOW_DOWN#onInit'),
     })
@@ -396,32 +370,25 @@ function event() {
         _initTimer: replace('sc.ENEMY_TRACKER.TIME#_initTimer'),
         reset: replace('sc.ENEMY_TRACKER.TIME#reset'),
     })
-    // @ts-expect-error
     ig.ACTION_STEP.ESCAPE_FROM_TARGET.inject({
         start: replace('ig.ACTION_STEP.ESCAPE_FROM_TARGET#start'),
         run: replace('ig.ACTION_STEP.ESCAPE_FROM_TARGET#run'),
     })
-    // @ts-expect-error
     ig.ACTION_STEP.CIRCLE_TARGET.inject({
         start: replace('ig.ACTION_STEP.CIRCLE_TARGET#start'),
     })
-    // @ts-expect-error
     ig.ACTION_STEP.FANCY_AIM.inject({
         start: replace('ig.ACTION_STEP.FANCY_AIM#start'),
     })
-    // @ts-expect-error
     ig.ACTION_STEP.WAIT_UNTIL_COMBAT_TRUE.inject({
         run: replace('ig.ACTION_STEP.WAIT_UNTIL_COMBAT_TRUE#run'),
     })
-    // @ts-expect-error
     ig.ACTION_STEP.COMBAT_IF.inject({
         getNext: replace('ig.ACTION_STEP.COMBAT_IF#getNext'),
     })
-    // @ts-expect-error
     ig.ACTION_STEP.RELEASE_STORED_ENEMIES.inject({
         start: replace('ig.ACTION_STEP.RELEASE_STORED_ENEMIES#start'),
     })
-    // @ts-expect-error
     ig.EVENT_STEP.COMBAT_IF.inject({
         getNext: replace('ig.EVENT_STEP.COMBAT_IF#getNext'),
     })
@@ -438,15 +405,12 @@ function event() {
     ig.ENTITY.Crosshair.inject({
         getThrowDir: replace('ig.ENTITY.Crosshair#getThrowDir'),
     })
-    // @ts-expect-error
     ig.ACTION_STEP.RAIN_BOMB.inject({
         start: replace('ig.ACTION_STEP.RAIN_BOMB#start'),
     })
-    // @ts-expect-error
     ig.EVENT_STEP.SPAWN_BOMB.inject({
         start: replace('ig.EVENT_STEP.SPAWN_BOMB#start'),
     })
-    // @ts-expect-error
     ig.ACTION_STEP.SET_PARTY_TEMP_TARGET.inject({
         start: replace('ig.ACTION_STEP.SET_PARTY_TEMP_TARGET#start'),
     })
@@ -464,7 +428,6 @@ function event() {
         selectEvent: replace('sc.CommonEvents#selectEvent'),
     })
 
-    // @ts-expect-error
     ig.ACTION_STEP.PLACE_TESLA_COIL.inject({
         run: replace('ig.ACTION_STEP.PLACE_TESLA_COIL#start'),
     })
