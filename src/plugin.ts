@@ -42,6 +42,7 @@ class DeterMine {
     }
 
     apply(instance: DeterMineInstance) {
+        if (!this.instances[instance.id]) throw new Error('applied determine instance that is not added!')
         this.instanceId = instance.id
     }
 }
